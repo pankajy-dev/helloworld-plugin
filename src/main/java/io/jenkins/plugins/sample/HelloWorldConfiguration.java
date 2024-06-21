@@ -1,12 +1,17 @@
 package io.jenkins.plugins.sample;
 
 import hudson.Extension;
+import hudson.util.FormValidation;
 import jenkins.model.GlobalConfiguration;
 
 @Extension
 public class HelloWorldConfiguration extends GlobalConfiguration {
     private String name;
     private String description;
+
+    public HelloWorldConfiguration() {
+        load();
+    }
 
     public HelloWorldConfiguration(String name, String description) {
         this.name = name;
@@ -19,6 +24,7 @@ public class HelloWorldConfiguration extends GlobalConfiguration {
 
     public void setName(String name) {
         this.name = name;
+        save();
     }
 
     public String getDescription() {
@@ -27,5 +33,10 @@ public class HelloWorldConfiguration extends GlobalConfiguration {
 
     public void setDescription(String description) {
         this.description = description;
+        save();
+    }
+
+    public FormValidation inputValidator(){
+        return null;
     }
 }

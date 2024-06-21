@@ -14,7 +14,7 @@
   <version>${revision}${changelist}</version>
   <packaging>hpi</packaging>
 
-  <name>Plugin Name in POM</name>
+  <name>Pankaj's Onboarding Plugin</name>
   <url>https://github.com/jenkinsci/${project.artifactId}-plugin</url>
   <licenses>
     <license>

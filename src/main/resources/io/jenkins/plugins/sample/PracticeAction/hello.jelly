@@ -1,0 +1,6 @@
+<?jelly escape-by-default='true'?>
+<j:jelly xmlns:j="jelly:core" xmlns:f="/lib/form" xmlns:st="jelly:stapler">
+    <!--   Without the content type it will not be treated as HTML-->
+    <st:header name="Content-Type" value="text/html;charset=UTF-8"/>
+       <h1>Hello Pankaj!</h1>
+</j:jelly>

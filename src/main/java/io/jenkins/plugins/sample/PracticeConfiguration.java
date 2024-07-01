@@ -38,9 +38,6 @@ public class PracticeConfiguration extends GlobalConfiguration {
 
     public void setDescription(String description) {
         this.description = description;
-        if(descriptionValidation(description)){
-            save();
-        }
     }
 
     public FormValidation doCheckDescription(@QueryParameter String description) {
@@ -50,14 +47,12 @@ public class PracticeConfiguration extends GlobalConfiguration {
         return FormValidation.ok();
     }
 
-//    @Override
-//    public boolean configure(StaplerRequest req, JSONObject json) throws FormException {
-//        req.bindJSON(this, json);
-//        if(!descriptionValidation(description)){
-//            save();
-//        }
-//        return true;
-//    }
+    @Override
+    public boolean configure(StaplerRequest req, JSONObject json) throws FormException {
+       description = json.getString("description");
+       save();
+       return super.configure(req, json);
+    }
 
     private boolean descriptionValidation(String desc){
         for (int i = 0; i < desc.length(); i++) {

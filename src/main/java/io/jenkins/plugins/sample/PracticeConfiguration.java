@@ -29,9 +29,7 @@ public class PracticeConfiguration extends GlobalConfiguration {
 
     public void setName(String name) {
         this.name = name;
-        if(!descriptionValidation(description)){
-            save();
-        }
+        save();
     }
 
     public String getDescription() {
@@ -40,7 +38,9 @@ public class PracticeConfiguration extends GlobalConfiguration {
 
     public void setDescription(String description) {
         this.description = description;
-        save();
+        if(descriptionValidation(description)){
+            save();
+        }
     }
 
     public FormValidation doCheckDescription(@QueryParameter String description) {
